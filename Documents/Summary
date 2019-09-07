@@ -1,0 +1,19 @@
+Group 3: Charles Campisi, Venkata Mantripragada, Joan Stone-Mays and Nick Weaver
+D3 Project: Veggie Tales
+
+Summary: Our idea is to visually display the gain in popularity of meat substitutes in the past twenty years.  We will also show a list of the plant-based food companies and their gain in popularity over the 20-year observation period.  Our next step is to pick 50 meat food products compare them to meatless alternatives and display common nutritional factors of each. 
+
+Data Plan: Pull API data from the USDA for nutritional content for meat and plant-based foods.  Do data cleaning and manipulation in Python. Merge data in a Mongo DB. Use D3, Plotly, Leaflet, Flask to create visualizations. 
+
+Data Sources:  
+
+US Department of Agriculture:
+https://fdc.nal.usda.gov/index.html
+
+
+Reducing food's environmental impacts through producers and consumers
+Supplementary Materials:
+
+https://science.sciencemag.org/content/suppl/2018/05/30/360.6392.987.DC1
+
+GitHub Link: https://github.com/campisicharles/D3Project
