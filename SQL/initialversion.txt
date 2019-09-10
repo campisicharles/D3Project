@@ -1,0 +1,40 @@
+﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- Link to schema: https://app.quickdatabasediagrams.com/#/d/T5b2av
+-- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
+
+
+CREATE TABLE "Product" (
+    "product_name" VARCHAR   NOT NULL,
+    CONSTRAINT "pk_Product" PRIMARY KEY (
+        "product_name"
+     )
+);
+
+CREATE TABLE "LandUse" (
+    "product_name" VARCHAR   NOT NULL,
+    "land_mean" int   NOT NULL
+);
+
+CREATE TABLE "GHGEmissions" (
+    "product_name" VARCHAR   NOT NULL,
+    "ghg_mean" int   NOT NULL
+);
+
+CREATE TABLE "AcidEmissions" (
+    "product_name" VARCHAR   NOT NULL,
+    "acid_mean" int   NOT NULL
+);
+
+CREATE TABLE "EutroEmissions" (
+    "product_name" VARCHAR   NOT NULL,
+    "eutro_mean" int   NOT NULL
+);
+
+CREATE TABLE "WaterWithdrawl" (
+    "product_name" VARCHAR   NOT NULL,
+    "water_mean" int   NOT NULL
+);
+
+ALTER TABLE "Product" ADD CONSTRAINT "fk_Product_product_name" FOREIGN KEY("product_name")
+REFERENCES "WaterWithdrawl" ("product_name");
+
