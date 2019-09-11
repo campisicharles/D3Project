@@ -1,0 +1,10 @@
+
+CREATE TABLE "clean_environment_data" (
+    "Product" VARCHAR   NOT NULL,
+    "NutrUnits" decimal   NOT NULL,
+    "LandUse" decimal   NOT NULL,
+    "CO2Emissions" decimal   NOT NULL,
+    "SO2Emissions" decimal   NOT NULL,
+    "PO4Emissions" decimal   NOT NULL,
+    "FreshwaterWithdrawals" float   NOT NULL
+);
