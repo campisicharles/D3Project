@@ -1,0 +1,11 @@
+
+CREATE TABLE "NutritionData" (
+    "Food_ID" int   NOT NULL,
+    "Name" varchar   NOT NULL,
+    "Energy" numeric   NOT NULL,
+    "Carbohydrates" numeric   NOT NULL,
+    "Fat" numeric   NOT NULL,
+    "Fiber" numeric   NOT NULL,
+    "Protein" numeric   NOT NULL,
+    "Sugar" numeric   NOT NULL
+);
