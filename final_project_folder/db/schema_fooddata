@@ -2,10 +2,15 @@
 CREATE TABLE "NutritionData" (
     "Food_ID" int   NOT NULL,
     "Name" varchar   NOT NULL,
-    "Energy" numeric   NOT NULL,
-    "Carbohydrates" numeric   NOT NULL,
-    "Fat" numeric   NOT NULL,
-    "Fiber" numeric   NOT NULL,
-    "Protein" numeric   NOT NULL,
-    "Sugar" numeric   NOT NULL
+    "Energy(kcal)" numeric   NOT NULL,
+    "Carbohydrates(g)" numeric   NOT NULL,
+    "Fat(g)" numeric   NOT NULL,
+    "Fiber(g)" numeric   NOT NULL,
+    "Protein(g)" numeric   NOT NULL,
+    "Sugar(g)" numeric   NOT NULL,
+	"Type" varchar,
+	"Group" varchar,
+	 CONSTRAINT "pk_NutritionData" PRIMARY KEY (
+        "Food_ID"
+	)
 );
