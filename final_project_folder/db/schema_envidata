@@ -6,7 +6,8 @@ CREATE TABLE "clean_environment_data" (
     "CO2Emissions" decimal   NOT NULL,
     "SO2Emissions" decimal   NOT NULL,
     "PO4Emissions" decimal   NOT NULL,
-    "FreshwaterWithdrawals" decimal   NOT NULL, 
+    "FreshwaterWithdrawals" decimal   NOT NULL,
+	"Type" VARCHAR   NOT NULL,
 	CONSTRAINT "pk_clean_environment_data" PRIMARY KEY (
         "Product"
 	)
