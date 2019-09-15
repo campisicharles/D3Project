@@ -21,17 +21,8 @@
     var chartGroup = svg.append("g")
                         .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
-    d3.csv('../js/nutritionData.csv').then(function(Data){
-     var simulation = d3.forceSimulation(Data)
-                        .force('charge', d3.forceManyBody().strength(5))
-                        .force('center', d3.forceCenter(chartWidth / 2, chartHeight / 2))
-                        .force('collision', d3.forceCollide().radius(function(d) {
-                           return d.energy
-                        }))
-                        .on('tick', makeResponsive)
-                        simulation.tick(5);
-                        simulation.stop();
-                      });
+ 
+
 function makeResponsive(){   
     d3.csv('../js/nutritionData.csv').then(function(Data){
         console.log(Data);
@@ -44,7 +35,7 @@ function makeResponsive(){
             d.protein= +d.protein;
             d.sugar= +d.sugar;
         });
-    
+        
         var yScale = d3.scaleLinear()
                         .domain([chartHeight,0])
                         .range([0,chartHeight]);
@@ -67,16 +58,17 @@ function makeResponsive(){
 
         chartGroup.call(toolTip);
 
-
+      function meatPlot(){
         var meatGroup = chartGroup.selectAll("circle")
                     .data(Data)
-                    .enter();
+                    .enter()
+                  
               meatGroup.exit().remove();
             var meatEnter= meatGroup.append("circle")
                     .filter(d => d.type == "m")
                     .attr("class", d=> d.group)
                     .attr("cx", d => xScale(d.Food_ID+Math.floor(Math.random() * 5)))
-                    .attr("cy", d=> yScale(d.Food_ID + Math.floor(Math.random() * 800)))
+                    .attr("cy", d=> yScale(d.Food_ID+Math.floor(Math.random() * 800)))
                     .attr("r", d=> rScale(d.energy))
                     .attr("fill", "red")
                     .attr("opacity", ".5")
@@ -85,16 +77,32 @@ function makeResponsive(){
                       })
                     .on("click", function(d){    
                         d3.selectAll("circle").style("stroke", "#e3e3e3").style("stroke-width", "0"); 
-                        d3.selectAll(`.${d.group}`).style("stroke", "#87b5ff").style("stroke-width", "4");
+                        d3.selectAll(`.${d.group}`).style("stroke", "#fac32a").style("stroke-width", "7");
                       })
                     .on("mouseout", function(d) {
                         toolTip.hide(d);
                       });
-        meatGroup=meatGroup.merge(meatEnter);      
+        meatGroup=meatGroup.merge(meatEnter);
+        meatGroup.exit().remove();
+                      var simulation = d3.forceSimulation(Data)
+                      .force('charge', d3.forceManyBody().strength(5))
+                      .force('x', d3.forceX().x(d => xScale(d.Food_ID)))
+                      .force('y', d3.forceY().y(chartHeight/2))
+                      .force('collision', d3.forceCollide().radius(d=> rScale(d.energy)))
+                      .on('tick', ticked1);
+                      
+                      function ticked1(){
+                        meatEnter.attr("cx", d => d.x).attr("cy", d => d.y)
+                        }
+                    };
+                    meatPlot();
 
+
+        function vegPlot(){            
         var vegGroup = chartGroup.selectAll("circle2")
                     .data(Data)
-                    .enter();
+                    .enter()
+                    
             vegGroup.exit().remove();
         var vegEnter = vegGroup.append("circle")
                     .filter(d => d.type == "v")
@@ -109,14 +117,36 @@ function makeResponsive(){
                     })
                   .on("click", function(d){    
                       d3.selectAll("circle").style("stroke", "#e3e3e3").style("stroke-width", "0"); 
-                      d3.selectAll(`.${d.group}`).style("stroke", "#87b5ff").style("stroke-width", "4");
+                      d3.selectAll(`.${d.group}`).style("stroke", "#fac32a").style("stroke-width", "7");
                     })
                   .on("mouseout", function(d) {
                       toolTip.hide(d);
                     });
           vegGroup=vegGroup.merge(vegEnter);
-            
 
+          var simulation = d3.forceSimulation(Data)
+          .force('charge', d3.forceManyBody().strength(5))
+          .force('x', d3.forceX().x(d => vegScale(d.Food_ID+Math.floor(Math.random() * 5))))
+          .force('y', d3.forceY().y(chartHeight/2))
+          .force('collision', d3.forceCollide().radius(d=> rScale(d.energy)))
+          .on('tick', ticked2);
+          
+          function ticked2(){
+            vegEnter.attr("cx", d => d.x).attr("cy", d => d.y)
+            }
+        };
+          vegPlot();        
+ 
+  
+          // var simulation = d3.forceSimulation(Data)
+          // .force('charge', d3.forceManyBody().strength(5))
+          // .force('center', d3.forceCenter(chartWidth / 2, chartHeight / 2))
+          // .force('collision', d3.forceCollide().radius(25))
+          // .on('tick', ticked);
+
+// function ticked(){
+// meatGroup.attr("cx", d => d.x).attr("cy", d => d.y)
+// }
     });
     };
 
