@@ -152,7 +152,7 @@ yText
 // This data file includes environmental impact of various food products
 
 // Import our CSV data with d3's .csv import method.
-d3.csv('/static/js/clean_environment_data4.csv').then(function(data) {
+d3.csv('clean_environment_data4.csv').then(function(data) {
   // Visualize the data
   //console.log(data);
   visualize(data);
