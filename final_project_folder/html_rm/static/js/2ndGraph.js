@@ -24,7 +24,7 @@
  
 
 function makeResponsive(){   
-    d3.csv('../../../db/nutritionData.csv').then(function(Data){
+    d3.csv('/static/js/nutritionData.csv').then(function(Data){
         console.log(Data);
         Data.forEach(function(d){
             d.Food_ID= +d.Food_ID;
