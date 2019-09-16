@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, jsonify
 from sqlalchemy import create_engine
 import numpy as np
@@ -13,12 +14,12 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # setup Postgres connection
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/EnvironmentalData'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '')
 heroku = Heroku(app)
 db = SQLAlchemy(app)
 
 class EnvironmentalData(db.Model):
-    __tablename__ = "NurtritionData"
+    __tablename__ = "NutritionData"
     Food_ID = db.Column(db.String, primary_key=True)
     Name = db.Column(db.Numeric)
     Energy_kcal = db.Column(db.Numeric)
