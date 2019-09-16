@@ -18,7 +18,7 @@ heroku = Heroku(app)
 db = SQLAlchemy(app)
 
 class EnvironmentalData(db.Model):
-    __tablename__ = "NurtritionData"
+    __tablename__ = "NutritionData"
     Food_ID = db.Column(db.String, primary_key=True)
     Name = db.Column(db.Numeric)
     Energy_kcal = db.Column(db.Numeric)
