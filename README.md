@@ -17,7 +17,7 @@ PROJECT CONCEPT
   - Difficulty finding robust sales data
 
 - Evolution
-  - Discovered USDA data for nutritional value of products and resource usage when producing key ingredients
+  - Discovered USDA & Oxford University data for nutritional value of products and resource usage when producing key ingredients
 
 - Final Project
   - Measuring the nutritional value, emissions, land and water usage of vegan and non-vegan products
