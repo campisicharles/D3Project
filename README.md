@@ -13,8 +13,8 @@ An exploration of the nutrient value of food and the resources used to produce i
 PROJECT CONCEPT
 Initial Idea
 Growth of Vegetarian/Veganism and the “presumed” corresponding growth in sales of “meatless” products
-	Lack of accurate data on number of vegetarians/vegans
-	Difficulty finding robust sales data
+Lack of accurate data on number of vegetarians/vegans
+Difficulty finding robust sales data
 
 Evolution
 Discovered USDA data for nutritional value of products and resource usage when producing key ingredients
