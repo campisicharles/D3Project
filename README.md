@@ -8,7 +8,7 @@ To Initiate the Project:
 
 PROJECT SUMMARY:
 - From Tofu to Turkey: Healthy for you? Healthy for the Earth?
-- An exploration of the nutrient value of food and the resources used to produce it
+  - An exploration of the nutrient value of food and the resources used to produce it
 
 PROJECT CONCEPT
 - Initial Idea
